@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class NoTwoAdjacentCharactersAreNeighbours {
 
 	public static void main(String[] args) {
-		String str = "aabcd";
+		String str = "acbdhgfaba";
 
 		rearrange(str);
 	}
@@ -29,6 +29,8 @@ public class NoTwoAdjacentCharactersAreNeighbours {
 		// Sort both the string
 		odd = sort(odd);
 		even = sort(even);
+		
+		System.out.println("After sorting... " + "odd String is:[" + odd + "]" + " and even string is:[" + even + "]");
 
 		if (check(odd + even)) {
 			System.out.println(odd + even);
