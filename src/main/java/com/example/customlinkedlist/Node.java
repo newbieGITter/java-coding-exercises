@@ -1,4 +1,4 @@
-package com.example.linkedlist;
+package com.example.customlinkedlist;
 
 public class Node {
 
