@@ -1,25 +1,24 @@
-package com.example.binarysearchtree;
+package com.example.bst;
 
-public class Node {
+public class BSTNode {
+	private int data;
+	private BSTNode left;
+	private BSTNode right;
 	
-	int data;
-	Node left;
-	Node right;
-	
-	public Node(int data) {
-		this.data = data;
+	public BSTNode(int value) {
+		this.data = value;
 	}
 	
 	public void insert(int value) {
 		if(value <= data) {
 			if(left == null) {
-				left = new Node(value);
+				left = new BSTNode(value);
 			} else {
 				left.insert(value);
 			}
 		} else {
 			if(right == null) {
-				right = new Node(value);
+				right = new BSTNode(value);
 			} else {
 				right.insert(value);
 			}
@@ -29,13 +28,15 @@ public class Node {
 	public boolean contains(int value) {
 		if(value == data) {
 			return true;
-		} else if(value < data) {
+		} 
+		else if(value < data) {
 			if(left == null) {
 				return false;
 			} else {
 				return left.contains(value);
 			}
-		} else {
+		}
+		else {
 			if(right == null) {
 				return false;
 			} else {
@@ -44,14 +45,14 @@ public class Node {
 		}
 	}
 	
-	public void printInorder() {
+	public void printInOrder() {
 		if(left != null) {
-			left.printInorder();
+			left.printInOrder();
 		}
 		System.out.println(data);
 		
 		if(right != null) {
-			right.printInorder();
+			right.printInOrder();
 		}
 	}
 
