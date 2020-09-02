@@ -2,17 +2,19 @@ package com.example.strings;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FindMostFrequentWordInStringArray {
+public class FindLeastFrequentWordInStringArray {
 	public static void main(String[] args) {
 		String[] inputArray = { "Jason Roy", "Johny Bairstow", "Joe Root", "Joe Denly", "Johny Bairstow", "KP", "Jos Buttler",
 				"KP", "Ben Stokes", "KP", "Chris Woakes", "Jason Roy" };
-		countMostFrequentWord(inputArray);
+		printLeastFrequentWord(inputArray);
 	}
-
-	private static void countMostFrequentWord(String[] inputArray) {
-		HashMap<String, Integer> stringCount = new HashMap<>();
+	
+	// This will return the first non-frequent(least frequent word in the String array
+	private static void printLeastFrequentWord(String[] inputArray) {
+		HashMap<String, Integer> stringCount = new LinkedHashMap<>();
 
 		for (int i = 0; i < inputArray.length; i++) {
 			if (stringCount.get(inputArray[i]) == null) {
@@ -24,10 +26,10 @@ public class FindMostFrequentWordInStringArray {
 
 		// Now we have a map of word -> count of word. We need to get key which has maximum count & display it using Java 8 streams.
 		// This worked: 
-		String mostFrequentWord = stringCount.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
-		System.out.println("Most frequend word in the String array is: " + mostFrequentWord);
+		String leastFrequentWord = stringCount.entrySet().stream().min((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
+		System.out.println("Least frequent word in the String array is: " + leastFrequentWord);
 
 		// Elegant and minimized approach
-		System.out.println("Most frequend word is: " + Collections.max(stringCount.entrySet(), Map.Entry.comparingByValue()).getKey()); // E
+		System.out.println("Least frequent word is: " + Collections.min(stringCount.entrySet(), Map.Entry.comparingByValue()).getKey()); // E
 	}
 }
