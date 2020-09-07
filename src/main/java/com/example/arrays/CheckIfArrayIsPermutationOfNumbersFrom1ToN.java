@@ -15,6 +15,13 @@ public class CheckIfArrayIsPermutationOfNumbersFrom1ToN {
 		} else {
 			System.out.println("No");
 		}
+
+		if (checkForPermutations_usingTwoSets(arr)) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
+
 	}
 
 	private static boolean checkForPermutations(int[] arr, int n) {
@@ -34,6 +41,23 @@ public class CheckIfArrayIsPermutationOfNumbersFrom1ToN {
 			return true;
 		}
 		return false;
+	}
+
+	private static boolean checkForPermutations_usingTwoSets(int[] A) {
+		Set<Integer> testedSet = new HashSet<>();
+		Set<Integer> perfectSet = new HashSet<>();
+
+		for (int i = 0; i < A.length; i++) {
+			testedSet.add(A[i]);
+			perfectSet.add(i + 1);
+		}
+		int result = 1;
+		for (int current : perfectSet) {
+			// as soon as find 1 element missing return false
+			if (!testedSet.contains(current))
+				result = 0;
+		}
+		return result == 1 ? Boolean.TRUE : Boolean.FALSE;
 	}
 
 }

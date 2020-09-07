@@ -2,7 +2,7 @@ package com.example.arrays;
 
 import java.util.Arrays;
 
-public class MissingNumberInUnsortedArray {
+public class FindMissingNumberInUnsortedArray {
 	public static void main(String[] args) {
 		int[] arr = { 1, 3, 6, 4, 5, 1 };
 

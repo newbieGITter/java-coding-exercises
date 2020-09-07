@@ -4,6 +4,7 @@ public class User {
 
 	private String name;
 	private int age;
+	private String gender;
 
 	public User() {
 	}
@@ -11,9 +12,9 @@ public class User {
 	public User(String name) {
 		super();
 		this.name = name;
-		
+
 		// Some random logic to assign age
-		if(name.startsWith("S")) {
+		if (name.startsWith("S")) {
 			this.age = 30;
 		} else {
 			this.age = 35;
@@ -34,6 +35,14 @@ public class User {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }
