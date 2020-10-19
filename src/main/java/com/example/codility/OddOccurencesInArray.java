@@ -7,6 +7,7 @@ import java.util.Set;
 public class OddOccurencesInArray {
 
 	public static void main(String[] args) {
+		// Both 9 and 3 are occuring 5 times but because 3 is smaller number than 9, it should return 3.
 		int[] A = new int[] { 3, 9, 9, 3, 9, 7, 9, 7, 9, 3, 3, 3 };
 
 		if (solution(A) != 0) {

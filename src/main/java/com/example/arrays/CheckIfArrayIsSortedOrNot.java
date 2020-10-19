@@ -3,7 +3,7 @@ package com.example.arrays;
 public class CheckIfArrayIsSortedOrNot {
 
 	public static void main(String[] args) {
-		int a[] = new int[] { 1, 2, 2, 2, 2, 2, 3, 3, 5, 5 };
+		int a[] = new int[] { 1, 2, 2,3, 2, 2, 2, 3, 3, 5, 5 };
 
 		if(isSorted(a, a.length)) {
 			System.out.println("Given array is sorted.");

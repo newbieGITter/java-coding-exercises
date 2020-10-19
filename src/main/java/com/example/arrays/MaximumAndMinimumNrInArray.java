@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class MaximumAndMinimumNrInArray {
 
@@ -30,6 +31,10 @@ public class MaximumAndMinimumNrInArray {
 			String[] readLine = reader.readLine().split(" ");
 			mapOfCounterWithArray.put(i + 1, readLine);
 		}
+		mapOfCounterWithArray.forEach((key, value) -> {
+			System.out.print("key: " + key + " Value: ");
+			Stream.of(value).forEach(s -> System.out.print(s + " "));
+		});
 		findMinAndMaxNumberInArray(mapOfCounterWithArray);
 	}
 

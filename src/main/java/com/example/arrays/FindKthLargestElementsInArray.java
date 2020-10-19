@@ -1,7 +1,9 @@
 package com.example.arrays;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FindKthLargestElementsInArray {
 
@@ -29,6 +31,11 @@ public class FindKthLargestElementsInArray {
 		}
 		System.out.print("Largest 'k' numbers in the array are: ");
 		kthLargestElements.stream().forEach(s -> System.out.print(s + " "));
+
+		// Map<Integer, String> map = new HashMap<>();
+		// map.put(1, "saa");
+		// map.put(2, "champa");
+		// map.keySet().stream().forEach(s -> System.out.print(map.get(s) + " "));
 	}
 
 }

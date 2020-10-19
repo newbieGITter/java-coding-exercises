@@ -20,6 +20,7 @@ public class FindMinimumNrInSortedRotatedArray {
 
 		// Find mid
 		int mid = low + (high - low) / 2; /* (low + high)/2; */
+		System.out.println("Mid: " + mid);
 
 		// Check if element (mid+1) is minimum element. Consider
 		// the cases like {3, 4, 5, 1, 2}

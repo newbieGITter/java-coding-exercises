@@ -1,6 +1,8 @@
 package com.example.streams;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -16,6 +18,9 @@ public class MapToIntExample {
 	public static void main(String[] args) {
 		List<String> names = Arrays.asList("Saahas", "Rahul", "Saurabh", "Pankaj", "Aatish", "Arun", "Pavan", "Arun");
 		names.sort(Comparator.comparing(String::toString));
+		
+	//	Map<String, Integer> collect = names.stream().distinct().sorted(Comparator.naturalOrder()).collect(Collectors.toMap(Function.identity(), String::length));
+	//	collect.forEach((key, value) -> System.out.println(key + ":" + value));
 
 		List<User> users = names.stream().filter(n -> !n.startsWith("S")).map(User::new).collect(Collectors.toList());
 		int sum = users.stream().mapToInt(User::getAge).sum();
@@ -56,6 +61,7 @@ public class MapToIntExample {
 		Map<String, String> books = new HashMap<>();
 		books.put("978-0201633610", "Design patterns : elements of reusable object-oriented software");
 		books.put("978-1617291999", "Java 8 in Action: Lambdas, Streams, and functional-style programming");
+		books.put("978-1617252533", "Java 8 in Action: Lambdas, Streams & Optional");
 		books.put("978-0134685991", "Effective Java");
 		books.put("978-0321356680", "Effective Java: Second Edition");
 
@@ -65,6 +71,8 @@ public class MapToIntExample {
 		 * .findFirst(); if(bookKeyOptional.isPresent()) {
 		 * System.out.println("Key of book is: " + bookKeyOptional.get()); }
 		 */
+		books.entrySet().stream().filter(b -> b.getValue().startsWith("Java 8")).map(Map.Entry::getValue).forEach(System.out::println);
+		
 		List<String> isbnCodes = books.entrySet().stream().filter(book -> book.getValue().startsWith("Effective Java"))
 				.map(Map.Entry::getKey).collect(Collectors.toList());
 		isbnCodes.stream().forEach(b -> System.out.println("Isbn code for book is: " + b));
